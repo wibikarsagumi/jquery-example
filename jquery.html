@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Jquery</title>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){					   
+		$(".gambar").css('max-height','110px'); // Awalnya, gambar hanya ditampilkan sebagian saja. Disini kita menampilkan gambar sebesar 110px
+
+		$(".gambar").mouseover(function(){
+			$(".expand").show();
+		}).mouseout(function(){ 
+			$(".expand").hide();
+		});
+		
+		
+		$(".link").click(function(){	// Ketika link Tampilkan di klik, maka gambar akan ditampilkan secara penuh					
+			if($(this).html()=='Tampilkan'){
+				$(".gambar").css('max-height','');
+				$(this).html('Sembunyikan');
+			}else{
+				$(".gambar").css('max-height','100px');
+				$(this).html('Tampilkan');
+			}				
+		});	
+
+	});
+	</script>
+
+	<style type="text/css">
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		color: #000;
+		background-color: #F7F7F7;
+		margin: 20px auto;
+		padding: 10px;
+		width: 960px;
+		border:1px solid #EEE;
+	}
+	.gambar {
+		width:800px;
+		margin:50px auto;
+		display:block;
+		position:relative;
+		overflow:hidden;
+	}
+	.link {
+		color:#06C;
+	}
+	.expand {
+		background: none repeat scroll 0 0 #F2F2F2;
+		border-bottom: 1px dashed #333333;
+		border-top: 1px dashed #333333;
+		bottom: 0;
+		cursor: pointer;
+		display: none;
+		height: 18px;
+		left: 0;
+		line-height: 18px;
+		padding: 5px;
+		position: absolute;
+		width: 100%;
+		color: #000;
+	}
+	.sticker {
+	    position: relative;
+	    height: 80px;
+	    width: 80px;
+	    background: url(burung.png);
+	    background-size: 320px 320px;
+	    cursor: default;
+	    background-position: 0px 0px;
+	    image-rendering: -webkit-optimize-contrast;
+	}
+	.container {
+		width:800px;
+		margin:50px auto;
+	}
+	</style>
+</head>
+<body>
+	<div class="gambar">
+		<h3>Contoh Expand</h3>
+		<img src="https://blog.goway.com/globetrotting/wp-content/uploads/2018/05/Kiyomizu-dera-Temple-and-cherry-blossom-season-Sakura-spring-time-in-Kyoto-Japan-_1017748333.jpg"/>
+		<div class="expand">
+			<span class="link">Tampilkan</span>
+		</div>
+	</div>
+	<div class="container">
+		<h3>Contoh Animasi Gambar</h3>
+		<div class="sticker" id="stiker"></div>
+		<script src="sticker.js" stype="text/javascript"></script>
+	</div>
+</body>
+</html>
